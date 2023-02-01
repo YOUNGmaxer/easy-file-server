@@ -11,8 +11,7 @@ function createWindow(): void {
   })
 
   win.loadFile(indexHtml)
+  win.webContents.openDevTools()
 }
 
-app.whenReady().then(() => {
-  createWindow()
-})
+app.whenReady().then(createWindow)
