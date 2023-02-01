@@ -2,9 +2,9 @@
   "name": "easy-file-server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron ."
   },
   "keywords": [],
   "author": "",
@@ -12,5 +12,8 @@
   "dependencies": {
     "koa": "^2.14.1",
     "koa-static": "^5.0.0"
+  },
+  "devDependencies": {
+    "electron": "^22.1.0"
   }
 }
