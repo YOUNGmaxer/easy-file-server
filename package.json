@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/main.js",
   "scripts": {
-    "start": "electron ."
+    "dev": "vite"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +14,12 @@
     "koa-static": "^5.0.0"
   },
   "devDependencies": {
-    "electron": "^22.1.0"
+    "@vitejs/plugin-vue": "^4.0.0",
+    "electron": "^22.1.0",
+    "typescript": "^4.9.5",
+    "vite": "^4.0.4",
+    "vite-plugin-electron": "^0.11.1",
+    "vite-plugin-electron-renderer": "^0.11.4",
+    "vue": "^3.2.45"
   }
 }
