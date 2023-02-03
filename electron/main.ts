@@ -1,16 +1,14 @@
 import { app, BrowserWindow } from 'electron'
-import { join } from 'node:path'
 
-const rootPath = join(__dirname, '..')
-const indexHtml = join(rootPath, 'index.html')
+const devURL = 'http://localhost:5173'
 
 function createWindow(): void {
   const win = new BrowserWindow({
-    width: 800,
-    height: 600
+    width: 1200,
+    height: 600,
   })
 
-  win.loadFile(indexHtml)
+  win.loadURL(devURL)
   win.webContents.openDevTools()
 }
 
