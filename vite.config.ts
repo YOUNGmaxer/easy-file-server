@@ -1,11 +1,13 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import electron from 'vite-plugin-electron'
+import WindiCSS from 'vite-plugin-windicss'
 
 export default defineConfig(() => {
   return {
     plugins: [
       vue(),
+      WindiCSS(),
       electron({
         entry: 'electron/main.ts',
         vite: {

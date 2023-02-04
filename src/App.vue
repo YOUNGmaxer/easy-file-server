@@ -1,28 +1,21 @@
+<script setup lang="ts">
+import FileViewer from './components/FileViewer.vue'
+import ParamPanel from './components/ParamPanel.vue'
+import Controls from './components/Controls.vue'
+</script>
+
 <template>
-  <div class="container">
-    <div class="file-viewer">
-      文件视图区域
-    </div>
-    <div class="server-controls">
-      服务控制区域
-    </div>
+  <div class="app-container">
+    <FileViewer />
+    <ParamPanel />
+    <Controls />
   </div>
 </template>
 
 <style>
-.container {
+.app-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  flex: 1;
-}
-.file-viewer {
-  flex: 1;
-  margin: 20px;
-  border: 1px solid aquamarine;
-}
-.server-controls {
-  margin: 0 20px 20px;
-  height: 100px;
-  border: 1px solid aquamarine;
 }
 </style>
