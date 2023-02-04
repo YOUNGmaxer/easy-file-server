@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import Button from './Button.vue'
+
+function handleInputChange(e: any) {
+  const [file] = e.target.files
+}
 </script>
 
 <template>
@@ -8,10 +12,9 @@ import Button from './Button.vue'
       <span>端口 </span>
       <input class="input w-90px" />
     </div>
-    <div class="dict">
-      <span>目录  </span>
-      <input id="dict" type="file" webkitdirectory />
-      <label for="dict"><Button>选择目录</Button></label>
+    <div>
+      <input id="dict" type="file" webkitdirectory @change="handleInputChange" />
+      <Button><label for="dict">选择目录</label></Button>
     </div>
   </div>
 </template>

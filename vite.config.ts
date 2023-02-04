@@ -16,7 +16,9 @@ export default defineConfig(() => {
             minify: false,
             outDir: 'dist-electron',
           }
-        }
+        },
+        // onstart 无行为则不会自动启动 app
+        onstart() {}
       }),
     ],
   }

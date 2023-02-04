@@ -1,6 +1,5 @@
 <template>
-  <div class="file-viewer">
-  </div>
+  <div class="file-viewer"></div>
 </template>
 
 <style>
