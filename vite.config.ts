@@ -8,18 +8,33 @@ export default defineConfig(() => {
     plugins: [
       vue(),
       WindiCSS(),
-      electron({
-        entry: 'electron/main.ts',
-        vite: {
-          build: {
-            sourcemap: true,
-            minify: false,
-            outDir: 'dist-electron',
-          }
+      electron([
+        {
+          entry: 'electron/main.ts',
+          vite: {
+            build: {
+              sourcemap: true,
+              minify: false,
+              outDir: 'dist-electron',
+            }
+          },
+          // onstart 无行为则不会自动启动 app
+          onstart() {}
         },
-        // onstart 无行为则不会自动启动 app
-        onstart() {}
-      }),
+        {
+          entry: 'electron/preload.ts',
+          vite: {
+            build: {
+              sourcemap: true,
+              minify: false,
+              outDir: 'dist-electron',
+            }
+          },
+          onstart(options) {
+            options.reload()
+          }
+        }
+      ]),
     ],
   }
 })
