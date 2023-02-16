@@ -22,12 +22,13 @@ export default defineConfig(() => {
           onstart() {}
         },
         {
-          entry: 'electron/preload.ts',
+          entry: 'electron/preload/index.ts',
           vite: {
             build: {
               sourcemap: true,
               minify: false,
-              outDir: 'dist-electron',
+              outDir: 'dist-electron/preload',
+              
             }
           },
           onstart(options) {
