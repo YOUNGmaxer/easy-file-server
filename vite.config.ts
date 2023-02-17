@@ -1,7 +1,20 @@
-import { defineConfig } from 'vite'
+import { defineConfig, UserConfigExport } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import electron from 'vite-plugin-electron'
 import WindiCSS from 'vite-plugin-windicss'
+
+const electronViteConfig: UserConfigExport = {
+  resolve: {
+    alias: {
+      '@': __dirname
+    }
+  },
+  build: {
+    sourcemap: true,
+    minify: false,
+    outDir: 'dist-electron',
+  }
+}
 
 export default defineConfig(() => {
   return {
@@ -11,26 +24,13 @@ export default defineConfig(() => {
       electron([
         {
           entry: 'electron/main.ts',
-          vite: {
-            build: {
-              sourcemap: true,
-              minify: false,
-              outDir: 'dist-electron',
-            }
-          },
+          vite: electronViteConfig,
           // onstart 无行为则不会自动启动 app
           onstart() {}
         },
         {
-          entry: 'electron/preload/index.ts',
-          vite: {
-            build: {
-              sourcemap: true,
-              minify: false,
-              outDir: 'dist-electron/preload',
-              
-            }
-          },
+          entry: 'electron/preload.ts',
+          vite: electronViteConfig,
           onstart(options) {
             options.reload()
           }

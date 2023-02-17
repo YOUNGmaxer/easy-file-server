@@ -15,11 +15,12 @@
   },
   "devDependencies": {
     "@types/koa": "^2.13.5",
+    "@types/koa-static": "^4.0.2",
     "@vitejs/plugin-vue": "^4.0.0",
     "electron": "^22.1.0",
     "electron-builder": "^23.6.0",
     "typescript": "^4.9.5",
-    "vite": "^4.0.4",
+    "vite": "^4.1.2",
     "vite-plugin-electron": "^0.11.1",
     "vite-plugin-electron-renderer": "^0.11.4",
     "vite-plugin-windicss": "^1.8.10",

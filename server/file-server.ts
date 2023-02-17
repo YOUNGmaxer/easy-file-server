@@ -11,4 +11,3 @@ export function startFileServer() {
     console.log('Easy file server is running at port 7777')
   })
 }
-

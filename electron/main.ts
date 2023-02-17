@@ -1,3 +1,4 @@
+import { listenFileServerEvent } from '@/server/file-server-listener'
 import { app, BrowserWindow } from 'electron'
 import { join } from 'node:path'
 
@@ -9,10 +10,12 @@ function createWindow(): void {
     width: 800,
     height: 600,
     webPreferences:{
-      preload: join(__dirname, 'preload/index.js'),
+      preload: join(__dirname, 'preload.js'),
       nodeIntegration: true
     }
   })
+
+  listenFileServerEvent()
 
   win.loadURL(devURL)
   win.webContents.openDevTools()
