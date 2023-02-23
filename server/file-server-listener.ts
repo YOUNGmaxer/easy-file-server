@@ -1,6 +1,6 @@
 import { contextBridge, ipcMain, ipcRenderer } from 'electron';
 import { startFileServer } from './file-server';
-import { FileServerOptions } from './types';
+import type { FileServerOptions } from '@/types/file-server';
 
 enum FileServerEvent {
   Start = 'start-file-server'

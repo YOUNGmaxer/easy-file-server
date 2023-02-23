@@ -5,3 +5,8 @@ export interface FileServerOptions {
   /** 服务静态资源目录 */
   dict: string;
 }
+
+interface FileServerAPI {
+  /** 启动文件服务 */
+  startFileServer(options: FileServerOptions): void;
+}
