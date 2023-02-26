@@ -2,7 +2,18 @@
 import Button from './Button.vue'
 
 function handleInputChange(e: any) {
-  const [file] = e.target.files
+  const { files = [] } = e.target
+  if (!files.length) {
+    // TODO 给出弹窗提示
+    console.warn('dict has no files!')
+    return
+  }
+
+  // 如果有文件，则提取出目录路径
+  const [file] = files
+  const path = file.path.slice(0, file.path.length - file.name.length)
+
+  // TODO 设置到全局状态中
 }
 </script>
 
