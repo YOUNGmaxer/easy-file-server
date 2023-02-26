@@ -8,6 +8,7 @@ specifiers:
   electron-builder: ^23.6.0
   koa: ^2.14.1
   koa-static: ^5.0.0
+  pinia: ^2.0.32
   typescript: ^4.9.5
   vite: ^4.1.2
   vite-plugin-electron: ^0.11.1
@@ -26,6 +27,7 @@ devDependencies:
   '@vitejs/plugin-vue': 4.0.0_vite@4.1.2+vue@3.2.45
   electron: 22.1.0
   electron-builder: 23.6.0
+  pinia: 2.0.32_2hxmazfbcwwtly5fgw7ckvmlau
   typescript: 4.9.5
   vite: 4.1.2
   vite-plugin-electron: 0.11.1
@@ -619,6 +621,10 @@ packages:
     dependencies:
       '@vue/compiler-dom': 3.2.45
       '@vue/shared': 3.2.45
+    dev: true
+
+  /@vue/devtools-api/6.5.0:
+    resolution: {integrity: sha512-o9KfBeaBmCKl10usN4crU53fYtC1r7jJwdGKjPT24t348rHxgfpZ0xL3Xm/gLUYnc0oTp8LAmrxOeLyu6tbk2Q==}
     dev: true
 
   /@vue/reactivity-transform/3.2.45:
@@ -2160,6 +2166,24 @@ packages:
     engines: {node: '>=8.6'}
     dev: true
 
+  /pinia/2.0.32_2hxmazfbcwwtly5fgw7ckvmlau:
+    resolution: {integrity: sha512-8Tw4OrpCSJ028UUyp0gYPP/wyjigLoEceuO/x1G+FlHVf73337e5vLm4uDmrRIoBG1hvaed/eSHnrCFjOc4nkA==}
+    peerDependencies:
+      '@vue/composition-api': ^1.4.0
+      typescript: '>=4.4.4'
+      vue: ^2.6.14 || ^3.2.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@vue/devtools-api': 6.5.0
+      typescript: 4.9.5
+      vue: 3.2.45
+      vue-demi: 0.13.11_vue@3.2.45
+    dev: true
+
   /plist/3.0.6:
     resolution: {integrity: sha512-WiIVYyrp8TD4w8yCvyeIr+lkmrGRd5u0VbRnU+tP/aRLxP/YadJUYOMZJ/6hIa3oUyVCsycXvtNRgd5XBJIbiA==}
     engines: {node: '>=6'}
@@ -2623,6 +2647,21 @@ packages:
       rollup: 3.12.0
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
+
+  /vue-demi/0.13.11_vue@3.2.45:
+    resolution: {integrity: sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==}
+    engines: {node: '>=12'}
+    hasBin: true
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-rc.1
+      vue: ^3.0.0-0 || ^2.6.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      vue: 3.2.45
     dev: true
 
   /vue/3.2.45:

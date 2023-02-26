@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Button from './Button.vue'
+import { useFileServerStore } from '../store/file-server'
 
 function handleInputChange(e: any) {
   const { files = [] } = e.target
@@ -13,7 +14,9 @@ function handleInputChange(e: any) {
   const [file] = files
   const path = file.path.slice(0, file.path.length - file.name.length)
 
-  // TODO 设置到全局状态中
+  // 设置目录
+  const store = useFileServerStore()
+  store.setDirectory(path)
 }
 </script>
 

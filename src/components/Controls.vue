@@ -1,8 +1,16 @@
 <script setup lang="ts">
+import { useFileServerStore } from '../store/file-server'
 import Button from './Button.vue'
 
 const startServer = () => {
-  window.electronAPI.startFileServer({ dist: '/Users/azeryang/Mine/Projects' })
+  const { directory } = useFileServerStore()
+  if (!directory) {
+    // TODO 给出提示
+    console.warn('directory is empty!')
+    return
+  }
+
+  window.electronAPI.startFileServer({ dist: directory })
 }
 </script>
 
