@@ -3,9 +3,6 @@ import serve from 'koa-static'
 import { error, info } from './log'
 
 const app = new Koa()
-const dirPath = '/Users/admin/Downloads'
-
-app.use(serve(dirPath))
 
 const errorListener = {
   handler(err) {
@@ -19,7 +16,9 @@ const errorListener = {
   }
 }
 
-export function startFileServer() {
+export function startFileServer(dirPath: string) {
+  app.use(serve(dirPath))
+
   app.listen(7777, () => {
     info('Easy file server is running at port 7777')
   })
