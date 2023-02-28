@@ -1,9 +1,10 @@
 import { contextBridge, ipcMain, ipcRenderer } from 'electron';
-import { startFileServer } from './file-server';
+import { startFileServer, stopFileServer } from './file-server';
 import type { FileServerOptions } from '@/types/file-server';
 
 enum FileServerEvent {
-  Start = 'start-file-server'
+  Start = 'start-file-server',
+  Stop = 'stop-file-server'
 }
 
 /** 监听文件服务事件 */
@@ -11,11 +12,13 @@ export function listenFileServerEvent() {
   ipcMain.on(FileServerEvent.Start, (event, options: FileServerOptions) => {
     startFileServer(options.dir)
   })
+  ipcMain.on(FileServerEvent.Stop, stopFileServer)
 }
 
 /** 注册 FileServer 相关接口，提供给 UI 层调用 */
 export function registerFileServerAPI() {
   contextBridge.exposeInMainWorld('electronAPI', {
-    startFileServer: (options: FileServerOptions) => ipcRenderer.send(FileServerEvent.Start, options)
+    startFileServer: (options: FileServerOptions) => ipcRenderer.send(FileServerEvent.Start, options),
+    stopFileServer: () => ipcRenderer.send(FileServerEvent.Stop)
   })
 }

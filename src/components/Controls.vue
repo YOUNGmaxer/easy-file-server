@@ -12,11 +12,17 @@ const startServer = () => {
 
   window.electronAPI.startFileServer({ dir: directory })
 }
+
+const stopServer = () => {
+  console.info('stop server')
+  window.electronAPI.stopFileServer()
+}
 </script>
 
 <template>
   <div class="controls p-16px flex items-center justify-center">
     <Button class="switch-btn" @click="startServer">启动服务</Button>
+    <Button class="ml-32px" @click="stopServer">停止服务</Button>
   </div>
 </template>
 
