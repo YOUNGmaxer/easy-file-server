@@ -6,7 +6,7 @@ function handleInputChange(e: any) {
   const { files = [] } = e.target
   if (!files.length) {
     // TODO 给出弹窗提示
-    console.warn('dict has no files!')
+    console.warn('dir has no files!')
     return
   }
 
@@ -27,8 +27,8 @@ function handleInputChange(e: any) {
       <input class="input w-90px" />
     </div>
     <div>
-      <input id="dict" type="file" webkitdirectory @change="handleInputChange" />
-      <Button><label for="dict">选择目录</label></Button>
+      <input id="dir" type="file" webkitdirectory @change="handleInputChange" />
+      <Button><label for="dir">选择目录</label></Button>
     </div>
   </div>
 </template>
@@ -42,7 +42,7 @@ function handleInputChange(e: any) {
   padding: 16px;
   border: 1px solid aquamarine;
 }
-#dict {
+#dir {
   width: 0;
 }
 </style>

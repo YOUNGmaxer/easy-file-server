@@ -10,7 +10,7 @@ const startServer = () => {
     return
   }
 
-  window.electronAPI.startFileServer({ dict: directory })
+  window.electronAPI.startFileServer({ dir: directory })
 }
 </script>
 

@@ -9,7 +9,7 @@ enum FileServerEvent {
 /** 监听文件服务事件 */
 export function listenFileServerEvent() {
   ipcMain.on(FileServerEvent.Start, (event, options: FileServerOptions) => {
-    startFileServer(options.dict)
+    startFileServer(options.dir)
   })
 }
 
