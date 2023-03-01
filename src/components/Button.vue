@@ -1,9 +1,14 @@
 <script lang="ts" setup>
 defineEmits<{(e: 'click'): void}>()
+const props = withDefaults(defineProps<{
+  disabled?: boolean;
+}>(), {
+  disabled: false
+})
 </script>
 
 <template>
-  <button class="button" @click="$emit('click')"><slot></slot></button>
+  <button class="button" :disabled="props.disabled" @click="$emit('click')"><slot></slot></button>
 </template>
 
 <style>
@@ -24,7 +29,12 @@ defineEmits<{(e: 'click'): void}>()
   touch-action: manipulation;
 }
 
-.button:active {
+.button:disabled {
+  color: grey;
+  cursor: default;
+}
+
+.button:not(:disabled):active {
   box-shadow: 0px 0px 0px 0px;
   top: 5px;
   left: 5px;

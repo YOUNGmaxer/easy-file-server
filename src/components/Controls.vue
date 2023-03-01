@@ -2,6 +2,8 @@
 import { useFileServerStore } from '../store/file-server'
 import Button from './Button.vue'
 
+const store = useFileServerStore()
+
 const startServer = async () => {
   const { directory } = useFileServerStore()
   if (!directory) {
@@ -11,19 +13,23 @@ const startServer = async () => {
   }
 
   const { isRunning, error } = await window.electronAPI.fileServer.start({ dir: directory })
-  console.log('isRunnig', isRunning, error)
+  store.setIsRunning(isRunning)
+  // TODO 处理 error
+  error && console.error(error);
 }
 
 const stopServer = async () => {
   const { isStopped, error } = await window.electronAPI.fileServer.stop();
-  console.info('stop server', isStopped, error)
+  store.setIsRunning(!isStopped)
+  // TODO 处理 error
+  error && console.error(error)
 }
 </script>
 
 <template>
   <div class="controls p-16px flex items-center justify-center">
-    <Button class="switch-btn" @click="startServer">启动服务</Button>
-    <Button class="ml-32px" @click="stopServer">停止服务</Button>
+    <Button class="switch-btn" :disabled="store.isRunning" @click="startServer">启动服务</Button>
+    <Button class="ml-32px" :disabled="!store.isRunning" @click="stopServer">停止服务</Button>
   </div>
 </template>
 
