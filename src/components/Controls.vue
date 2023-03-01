@@ -10,12 +10,12 @@ const startServer = () => {
     return
   }
 
-  window.electronAPI.startFileServer({ dir: directory })
+  window.electronAPI.fileServer.start({ dir: directory })
 }
 
 const stopServer = () => {
   console.info('stop server')
-  window.electronAPI.stopFileServer()
+  window.electronAPI.fileServer.stop()
 }
 </script>
 

@@ -8,7 +8,7 @@ export interface FileServerOptions {
 
 export interface FileServerAPI {
   /** 启动文件服务 */
-  startFileServer(options: FileServerOptions): void;
+  start(options: FileServerOptions): void;
   /** 停止文件服务 */
-  stopFileServer(): void;
+  stop(): void;
 }

@@ -10,6 +10,8 @@ let server: Server = null
 const errorListener = {
   handler(err) {
     error(err)
+    // 出错时认为服务启动异常，server 置为空
+    server = null
   },
   listen() {
     app.on('error', errorListener.handler)
@@ -51,4 +53,9 @@ export function stopFileServer(): void {
       : info('File server is closed')
     server = null
   })
+}
+
+/** 服务是否处于启动状态 */
+export function checkIsRunning(): boolean {
+  return !!server
 }

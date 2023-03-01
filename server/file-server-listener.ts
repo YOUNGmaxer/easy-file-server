@@ -18,7 +18,9 @@ export function listenFileServerEvent() {
 /** 注册 FileServer 相关接口，提供给 UI 层调用 */
 export function registerFileServerAPI() {
   contextBridge.exposeInMainWorld('electronAPI', {
-    startFileServer: (options: FileServerOptions) => ipcRenderer.send(FileServerEvent.Start, options),
-    stopFileServer: () => ipcRenderer.send(FileServerEvent.Stop)
+    fileServer: {
+      start: (options: FileServerOptions) => ipcRenderer.send(FileServerEvent.Start, options),
+      stop: () => ipcRenderer.send(FileServerEvent.Stop),
+    }
   })
 }
