@@ -9,18 +9,16 @@ enum FileServerEvent {
 
 /** 监听文件服务事件 */
 export function listenFileServerEvent() {
-  ipcMain.on(FileServerEvent.Start, (event, options: FileServerOptions) => {
-    startFileServer(options.dir)
-  })
-  ipcMain.on(FileServerEvent.Stop, stopFileServer)
+  ipcMain.handle(FileServerEvent.Start, async (_, options: FileServerOptions) => await startFileServer(options.dir))
+  ipcMain.handle(FileServerEvent.Stop, stopFileServer)
 }
 
 /** 注册 FileServer 相关接口，提供给 UI 层调用 */
 export function registerFileServerAPI() {
   contextBridge.exposeInMainWorld('electronAPI', {
     fileServer: {
-      start: (options: FileServerOptions) => ipcRenderer.send(FileServerEvent.Start, options),
-      stop: () => ipcRenderer.send(FileServerEvent.Stop),
+      start: (options: FileServerOptions) => ipcRenderer.invoke(FileServerEvent.Start, options),
+      stop: () => ipcRenderer.invoke(FileServerEvent.Stop),
     }
   })
 }

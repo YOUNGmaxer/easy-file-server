@@ -6,9 +6,19 @@ export interface FileServerOptions {
   dir: string;
 }
 
+export type FileServerStartResult = Promise<{
+  isRunning: boolean;
+  error?: Error;
+}>
+
+export type FileServerStopResult = Promise<{
+  isStopped: boolean;
+  error?: Error;
+}>
+
 export interface FileServerAPI {
   /** 启动文件服务 */
-  start(options: FileServerOptions): void;
+  start(options: FileServerOptions): FileServerStartResult;
   /** 停止文件服务 */
-  stop(): void;
+  stop(): FileServerStopResult;
 }

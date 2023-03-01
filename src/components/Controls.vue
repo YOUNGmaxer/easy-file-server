@@ -2,7 +2,7 @@
 import { useFileServerStore } from '../store/file-server'
 import Button from './Button.vue'
 
-const startServer = () => {
+const startServer = async () => {
   const { directory } = useFileServerStore()
   if (!directory) {
     // TODO 给出提示
@@ -10,12 +10,13 @@ const startServer = () => {
     return
   }
 
-  window.electronAPI.fileServer.start({ dir: directory })
+  const { isRunning, error } = await window.electronAPI.fileServer.start({ dir: directory })
+  console.log('isRunnig', isRunning, error)
 }
 
-const stopServer = () => {
-  console.info('stop server')
-  window.electronAPI.fileServer.stop()
+const stopServer = async () => {
+  const { isStopped, error } = await window.electronAPI.fileServer.stop();
+  console.info('stop server', isStopped, error)
 }
 </script>
 
