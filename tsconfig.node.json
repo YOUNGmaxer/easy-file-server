@@ -10,5 +10,5 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["vite.config.ts", "package.json", "electron", "server", "types"]
+  "include": ["vite.config.ts", "package.json", "electron", "server", "types", "test"]
 }

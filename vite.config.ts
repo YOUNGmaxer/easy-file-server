@@ -18,6 +18,11 @@ const electronViteConfig: UserConfigExport = {
 
 export default defineConfig(() => {
   return {
+    resolve: {
+      alias: {
+        '@': __dirname
+      }
+    },
     plugins: [
       vue(),
       WindiCSS(),
