@@ -4,7 +4,8 @@
   "description": "",
   "main": "dist-electron/main.js",
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "test": "vitest"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +26,7 @@
     "vite-plugin-electron": "^0.11.1",
     "vite-plugin-electron-renderer": "^0.11.4",
     "vite-plugin-windicss": "^1.8.10",
+    "vitest": "^0.29.2",
     "vue": "^3.2.45",
     "windicss": "^3.5.6"
   }
